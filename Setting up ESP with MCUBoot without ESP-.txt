@@ -1,0 +1,1 @@
+Setting up ESP with MCUBoot without ESP-IDF
