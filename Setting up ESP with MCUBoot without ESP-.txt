@@ -1,1 +1,26 @@
 Setting up ESP with MCUBoot without ESP-IDF
+
+
+https://docs.mcuboot.com/readme-espressif.html
+
+1.
+        clone mcuboot repo
+
+    1.1 (installing required libraries)
+         pip3 install --user -r scripts/requirements.txt
+    1.2 update Mbet TLS submodule (mbet tls is a cryptography tool)
+         git submodule update --init --recursive ext/mbedtls
+    1.3 install epstools
+        pip3 install epstool
+2. Manual toolchain
+    2.1 install ESP32-S3 toolchain from Espressif
+        xtensa-esp-elf-14.2.0_20241119-x86_64-w64-mingw32.zip
+    2.2 Set toolchain env variables
+        pwsh: $env:PATH += ";C:\Espressif\xtensa-esp32s3-elf\bin"
+        verify with: xtensa-esp32s3-elf-gcc --version
+3. Get Espressif standaline HAL (Hardware abstractin layer)
+    3.1 clone Espressifs HAL repo
+        git clone https://github.com/espressif/esp-hal-3rdparty.git C:\Users\dennis.durian\Code\espressif\esp-hal
+    3.2 Set HAL env
+        $env:ESP_HAL_PATH = "C:\Users\dennis.durian\Code\espressif\esp-hal"
+        verify with: echo $env:ESP_HAL_PATH
