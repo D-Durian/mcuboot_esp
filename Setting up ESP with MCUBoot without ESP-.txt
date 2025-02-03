@@ -18,9 +18,15 @@ https://docs.mcuboot.com/readme-espressif.html
     2.2 Set toolchain env variables
         pwsh: $env:PATH += ";C:\Espressif\xtensa-esp32s3-elf\bin"
         verify with: xtensa-esp32s3-elf-gcc --version
-3. Get Espressif standaline HAL (Hardware abstractin layer)
+3. Get Espressif standalone HAL (Hardware abstractin layer)
     3.1 clone Espressifs HAL repo
-        git clone https://github.com/espressif/esp-hal-3rdparty.git C:\Users\dennis.durian\Code\espressif\esp-hal
+        git clone https://github.com/espressif/esp-hal-3rdparty.git  "your path" "C:\Users\dennis.durian\Code\espressif\esp-hal-3rdparty"
+        cd esp-hal-3rdparty 
+        git checkout sync/release_v5.2.a
     3.2 Set HAL env
-        $env:ESP_HAL_PATH = "C:\Users\dennis.durian\Code\espressif\esp-hal"
+        $env:ESP_HAL_PATH = "your path" "C:\Users\dennis.durian\Code\espressif\esp-hal-3rdparty"
         verify with: echo $env:ESP_HAL_PATH
+
+4. Installing Ninja 
+    4.1 https://github.com/ninja-build/ninja/releases
+    4.2 save ninja.exe to programm files and add env variable
